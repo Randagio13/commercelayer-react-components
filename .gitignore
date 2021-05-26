@@ -120,3 +120,7 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+#playwright screenshot
+specs/e2e/screenshots/*.jpg
+specs/e2e/*.jpg

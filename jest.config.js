@@ -2,6 +2,7 @@ const tsconfig = require('./tsconfig.json')
 const moduleNameMapper = require('tsconfig-paths-jest')(tsconfig)
 
 module.exports = {
+  preset: 'jest-playwright-preset',
   // collectCoverageFrom: [
   //   '**/*.{js,jsx,ts,tsx}',
   //   '!**/*.d.ts',
