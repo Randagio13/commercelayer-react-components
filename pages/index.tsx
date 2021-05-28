@@ -379,6 +379,7 @@ const Home = () => {
                     />
                     <div className="flex flex-row flex-wrap justify-center">
                       <Price
+                        data-test={`price-${k}`}
                         skuCode={s}
                         className="text-green-600 text-2xl m-1"
                         compareClassName="text-gray-500 text-2xl m-1 line-through"

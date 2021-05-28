@@ -1,6 +1,7 @@
 import React, { Fragment, FunctionComponent } from 'react'
 import { PriceProps } from '#components/Price'
 import PropTypes from 'prop-types'
+import omit from 'lodash/omit'
 
 const propTypes = {
   formattedAmount: PropTypes.string,
@@ -17,13 +18,21 @@ export type PTemplateProps = {
 } & Omit<PriceProps, 'children'>
 
 const PriceTemplate: FunctionComponent<PTemplateProps> = (props) => {
+  const {
+    className,
+    formattedAmount,
+    formattedCompare,
+    compareClassName,
+    showCompare,
+    ...p
+  } = props
   return (
     <Fragment>
-      <span className={props.className}>{props.formattedAmount}</span>
-      {props.showCompare && (
-        <span className={props.compareClassName || ''}>
-          {props.formattedCompare}
-        </span>
+      <span className={className} {...omit(p, ['skuCode'])}>
+        {formattedAmount}
+      </span>
+      {showCompare && (
+        <span className={compareClassName || ''}>{formattedCompare}</span>
       )}
     </Fragment>
   )
