@@ -1,12 +1,7 @@
 import { chromium, Browser, Page, BrowserContext } from 'playwright'
 import expect from 'expect'
 import path from 'path'
-// import jestPlaywright from 'jest-playwright-preset'
-// import { collectCoverage } from 'jest-playwright-istanbul'
-
-// import v8toIstanbul from 'v8-to-istanbul'
-
-const endpointURL = 'http://localhost:3000/'
+const endpointURL = process.env.__ENDPOINT__
 let browser: Browser
 let page: Page
 let context: BrowserContext
@@ -27,13 +22,6 @@ beforeEach(async () => {
 })
 
 afterEach(async () => {
-  // const coverage = await page.coverage.stopJSCoverage()
-  // for (const entry of coverage) {
-  //   const converter = v8toIstanbul('', 0, { source: entry.source as string })
-  //   await converter.load()
-  //   converter.applyCoverage(entry.functions)
-  //   // console.log(JSON.stringify(converter.toIstanbul()))
-  // }
   // @ts-ignore
   await jestPlaywright.saveCoverage(page)
   await page.close()
@@ -42,8 +30,24 @@ afterEach(async () => {
 
 it('should work', async () => {
   await page.goto(endpointURL)
-  const content = await page.textContent('[data-test="price-0"]')
-  expect(content).toBe('€29,00')
+  const loading = await page.waitForSelector('text=Caricamento...')
+  expect(await loading.textContent()).toBe('Caricamento...')
+  const firstPrice = await page.textContent(
+    ':nth-match([data-test="price-0"], 1)'
+  )
+  const compareFirstPrice = await page.textContent(
+    ':right-of(:nth-match([data-test="price-0"], 1))'
+  )
+  const sndPrice = await page.textContent(
+    ':nth-match([data-test="price-0"], 2)'
+  )
+  const compareSndPrice = await page.textContent(
+    ':right-of(:nth-match([data-test="price-0"], 2))'
+  )
+  expect(firstPrice).toBe('€29,00')
+  expect(compareFirstPrice).toBe('€37,70')
+  expect(sndPrice).toBe('$34.80')
+  expect(compareSndPrice).toBe('$45.24')
   await page.screenshot({
     path: path.join(__dirname, 'screenshots', 'prices.jpg'),
   })
