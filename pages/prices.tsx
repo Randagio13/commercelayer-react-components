@@ -9,7 +9,7 @@ import CommerceLayer from '../src/components/CommerceLayer'
 
 const endpoint = 'https://the-blue-brand-2.commercelayer.co'
 
-export const Nav = ({ links }) => (
+export const Nav = ({ links }: any) => (
   <header className="dark p-6">
     <div className="container mx-auto">
       <nav className="flex flex-row items-center">
@@ -38,11 +38,11 @@ export const Nav = ({ links }) => (
   </header>
 )
 
-export const Title = ({ title }) => (
+export const Title = ({ title }: any) => (
   <div className="font-bold text-2xl mb-2 bg-green-300">{title}</div>
 )
 
-export const Type = ({ text }) => (
+export const Type = ({ text }: any) => (
   <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">
     #{text}
   </span>
