@@ -112,9 +112,11 @@ const Home = () => {
                     />
                     <div className="flex flex-row flex-wrap justify-center">
                       <Price
+                        data-test={`price-${k}`}
                         skuCode={s}
                         className="text-green-600 text-2xl m-1"
                         compareClassName="text-gray-500 text-2xl m-1 line-through"
+                        showCompare
                       />
                     </div>
                     <div className="p-3">
@@ -149,6 +151,7 @@ const Home = () => {
                     />
                     <div className="flex flex-row flex-wrap justify-center">
                       <Price
+                        data-test={`multi-price-${k}`}
                         skuCode={s}
                         className="text-green-600 text-2xl m-1"
                         compareClassName="text-gray-500 text-2xl m-1 line-through"
@@ -167,6 +170,13 @@ const Home = () => {
               })}
             </PricesContainer>
           </div>
+        </CommerceLayer>
+        <CommerceLayer accessToken={`${token}-`} endpoint={endpoint}>
+          <PricesContainer>
+            <Price showCompare skuCode="LSLEEVMM000000FFFFFFLXXX">
+              {() => null}
+            </Price>
+          </PricesContainer>
         </CommerceLayer>
       </div>
     </section>

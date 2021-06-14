@@ -66,6 +66,9 @@
       "limit": "55 KB"
     }
   ],
+  "nyc": {
+    "exclude": "**/*.config.*"
+  },
   "dependencies": {
     "@commercelayer/js-sdk": "^3.9.2",
     "@stripe/react-stripe-js": "^1.4.1",
