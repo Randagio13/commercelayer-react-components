@@ -5,6 +5,7 @@ cypress/screenshots/*
 
 #playwright
 specs/e2e/screenshots
+specs/e2e/fixtures
 
 # Logs
 logs

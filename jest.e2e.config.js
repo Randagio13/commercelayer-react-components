@@ -4,6 +4,6 @@ module.exports = {
   transform: {
     '^.+\\.(ts|tsx)?$': 'babel-jest',
   },
-  testTimeout: 30000,
+  testTimeout: 50000,
   setupFiles: ['<rootDir>/specs/config/dotenv-jest-config.ts'],
 }

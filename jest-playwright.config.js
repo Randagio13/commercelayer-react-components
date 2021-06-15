@@ -12,7 +12,6 @@ module.exports = {
   },
   launchOptions: {
     executablePath: process.env.PLAYWRIGHT_CHROME_EXECUTABLE_PATH,
-    headless: true,
   },
   collectCoverage: true,
 }
