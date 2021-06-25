@@ -1,7 +1,7 @@
 const config = {
   presets: ['next/babel'],
   env: {
-    test: {
+    development: {
       plugins: ['istanbul'],
     },
   },
@@ -14,7 +14,8 @@ if (
     process.env?.npm_lifecycle_script?.search('tsdx watch') !== -1)
 ) {
   config.presets = ['@babel/preset-env', '@babel/preset-react']
-  console.log('build config 🚀', config)
 }
+
+console.log('build config 🚀', config)
 
 module.exports = config

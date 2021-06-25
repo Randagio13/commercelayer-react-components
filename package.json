@@ -74,12 +74,12 @@
     "@stripe/react-stripe-js": "^1.4.1",
     "@stripe/stripe-js": "^1.15.0",
     "braintree-web": "^3.76.4",
-    "dotenv": "^10.0.0",
     "lodash": "^4.17.21",
     "lodash-es": "^4.17.21",
     "rapid-form": "^1.4.1"
   },
   "devDependencies": {
+    "dotenv": "^10.0.0",
     "@babel/plugin-proposal-class-properties": "^7.13.0",
     "@babel/preset-env": "^7.14.2",
     "@babel/preset-react": "^7.13.13",
@@ -88,6 +88,7 @@
     "@commercelayer/js-auth": "^2.0.4",
     "@cypress/code-coverage": "^3.9.5",
     "@cypress/webpack-preprocessor": "^5.9.0",
+    "@playwright/test": "^1.12.2",
     "@rollup/plugin-alias": "^3.1.2",
     "@size-limit/preset-big-lib": "^4.11.0",
     "@tailwindcss/aspect-ratio": "^0.2.1",
