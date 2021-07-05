@@ -45,7 +45,7 @@ const CustomAddToCart = (props) => {
       className={`${classes} ${props.className}`}
       onClick={myClick}
       disabled={props.disabled}
-      data-cy={props['data-cy']}
+      data-test-id={props['data-test-id']}
     >
       Custom add to cart
     </button>
@@ -118,9 +118,8 @@ export default function Order() {
                     <VariantsContainer>
                       <div className="m-2">
                         <VariantSelector
-                          data-cy="variant-selector"
+                          data-test-id="variant-selector"
                           className="w-full block bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                          name="variant1"
                           options={[
                             {
                               label: '6 months',
@@ -146,13 +145,13 @@ export default function Order() {
                     <div className="m-2">
                       <QuantitySelector
                         max={12}
-                        data-cy="quantity-selector"
+                        data-test-id="quantity-selector"
                         className="w-full block bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                       />
                     </div>
                     <div className="m-2">
                       <AddToCartButton
-                        data-cy="add-to-cart"
+                        data-test-id="add-to-cart"
                         className="w-full primary hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                       >
                         {CustomAddToCart}
@@ -170,16 +169,22 @@ export default function Order() {
               <LineItemsContainer>
                 <p className="text-sm m-2">
                   Your shopping bag contains{' '}
-                  <LineItemsCount data-cy="items-count" className="font-bold" />{' '}
+                  <LineItemsCount
+                    data-test-id="items-count"
+                    className="font-bold"
+                  />{' '}
                   items
                 </p>
                 <div className="flex flex-col p-2">
                   <LineItem>
                     <div className="flex justify-around items-center border-b p-5">
                       <LineItemImage className="p-2" width={80} />
-                      <LineItemName data-cy="line-item-name" className="p-2" />
+                      <LineItemName
+                        data-test-id="line-item-name"
+                        className="p-2"
+                      />
                       <LineItemQuantity
-                        data-cy="line-item-quantity"
+                        data-test-id="line-item-quantity"
                         max={100}
                         className="p-2"
                       />
@@ -189,11 +194,11 @@ export default function Order() {
                         field="quantity"
                       />
                       <LineItemAmount
-                        data-cy="line-item-total"
+                        data-test-id="line-item-total"
                         className="p-2"
                       />
                       <LineItemRemoveLink
-                        data-cy="line-item-remove"
+                        data-test-id="line-item-remove"
                         className="p-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                       />
                     </div>
@@ -201,19 +206,22 @@ export default function Order() {
                   <LineItem type="gift_cards">
                     <div className="flex justify-between items-center border-b p-5">
                       <LineItemImage className="p-2" width={40} />
-                      <LineItemName data-cy="line-item-name" className="p-2" />
+                      <LineItemName
+                        data-test-id="line-item-name"
+                        className="p-2"
+                      />
                       <LineItemQuantity
-                        data-cy="line-item-quantity"
+                        data-test-id="line-item-quantity"
                         max={10}
                         className="p-2"
                         disabled
                       />
                       <LineItemAmount
-                        data-cy="line-item-total"
+                        data-test-id="line-item-total"
                         className="p-2"
                       />
                       <LineItemRemoveLink
-                        data-cy="line-item-remove"
+                        data-test-id="line-item-remove"
                         className="p-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
                       />
                     </div>
@@ -268,7 +276,7 @@ export default function Order() {
                     <p className="text-lg mr-2">Total </p>
                   </div>
                   <div className="text-right">
-                    <TotalAmount data-cy="total-amount" />
+                    <TotalAmount data-test-id="total-amount" />
                   </div>
                 </div>
               </div>

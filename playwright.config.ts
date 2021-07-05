@@ -2,12 +2,12 @@
 import { PlaywrightTestConfig } from '@playwright/test'
 
 const config: PlaywrightTestConfig = {
+  timeout: 500000,
   testDir: 'specs/e2e',
   use: {
     // Browser options
-    headless: true,
+    headless: false,
     slowMo: 50,
-
     // Context options
     viewport: { width: 1280, height: 720 },
     ignoreHTTPSErrors: true,
